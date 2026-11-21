@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import type { CSSProperties, ReactNode } from 'react';
+import type { CSSProperties, PointerEvent as ReactPointerEvent, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 
 type ThemeChoice = 'auto' | 'light' | 'dark';
@@ -83,6 +83,37 @@ function Brand({ big = false }: { big?: boolean }) {
   return <span className={big ? 'brand-name brand-name-big' : 'brand-name'}>
     <span>one</span><span className="brand-green brand-four">4</span><span className="brand-green">sv.</span><span>studio</span>
   </span>;
+}
+
+// The interactive orbit follows the pointer without moving the numeral 4
+// separately: every letter keeps the same typographic baseline.
+function InteractiveBrand() {
+  const onPointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (event.pointerType !== 'mouse' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = Math.max(-1, Math.min(1, (2 * (event.clientX - rect.left) / rect.width) - 1));
+    const y = Math.max(-1, Math.min(1, (2 * (event.clientY - rect.top) / rect.height) - 1));
+    const angle = Math.atan2(y, x);
+    const root = event.currentTarget.style;
+
+    root.setProperty('--orbit-dot-x', `${(50 + 49 * Math.cos(angle)).toFixed(1)}%`);
+    root.setProperty('--orbit-dot-y', `${(50 + 49 * Math.sin(angle)).toFixed(1)}%`);
+    root.setProperty('--orbit-turn', `${(x * 4).toFixed(1)}deg`);
+    root.setProperty('--logo-shift-x', `${(x * 2).toFixed(1)}px`);
+    root.setProperty('--logo-shift-y', `${(y * 1.5).toFixed(1)}px`);
+  };
+
+  const onPointerLeave = (event: ReactPointerEvent<HTMLDivElement>) => {
+    const root = event.currentTarget.style;
+    for (const name of ['--orbit-dot-x', '--orbit-dot-y', '--orbit-turn', '--logo-shift-x', '--logo-shift-y']) {
+      root.removeProperty(name);
+    }
+  };
+
+  return <div className="hero-brand" onPointerMove={onPointerMove} onPointerLeave={onPointerLeave}>
+    <div className="orbit" aria-hidden="true"><span /></div>
+    <h1 id="hero-title"><Brand big /></h1>
+  </div>;
 }
 
 function ThemePicker() {
@@ -257,7 +288,7 @@ function App() {
     <main>
       <section className="hero container" aria-labelledby="hero-title">
         <div className="hero-note"><span className="green-dot" /> independent digital studio</div>
-        <div className="hero-brand"><div className="orbit" aria-hidden="true"><span /></div><h1 id="hero-title"><Brand big /></h1></div>
+        <InteractiveBrand />
         <p>Продукты, сервисы и немного экспериментов.</p>
       </section>
 
