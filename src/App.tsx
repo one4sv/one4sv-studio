@@ -33,7 +33,7 @@ const projects: Project[] = [
     openUrl: 'https://achievetogether.vercel.app/',
     sourceUrl: 'https://github.com/one4sv/AT',
     screenshots: [
-      { src: '/assets/at-plans.webp', title: 'Активности', description: 'Выполнение, таймер, календарь и статистика активности' },
+      { src: '/assets/at-activities.webp', title: 'Активности', description: 'Выполнение, таймер, календарь и статистика активности' },
       { src: '/assets/at-settings.webp', title: 'Настройки', description: 'Темы, персонализация и управление приложением' },
       { src: '/assets/at-chat.webp', title: 'Чаты', description: 'Общение, вложения и реакции' }
     ]
