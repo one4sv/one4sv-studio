@@ -10,6 +10,7 @@ type Project = {
   name: string;
   heading: ReactNode;
   category: string;
+  iconSrc: string;
   intro: string;
   description: string;
   technologies: string[];
@@ -25,13 +26,14 @@ const projects: Project[] = [
     name: 'Achieve Together',
     heading: <>Achieve<br />Together<span className="period">.</span></>,
     category: 'Социальная платформа',
+    iconSrc: '/assets/at-icon.svg',
     intro: 'Привычки, планы и совместные достижения.',
     description: 'Я создаю пространство, в котором можно планировать дела, отмечать прогресс, делиться результатами и общаться. Всё в одном приложении.',
     technologies: ['React 19', 'TypeScript', 'Vite', 'SCSS', 'Node.js', 'Express', 'Supabase', 'Chart.js'],
     openUrl: 'https://achievetogether.vercel.app/',
     sourceUrl: 'https://github.com/one4sv/AT',
     screenshots: [
-      { src: '/assets/at-plans.webp', title: 'Планы и активности', description: 'Календарь, планы и отслеживание выполнения' },
+      { src: '/assets/at-plans.webp', title: 'Активности', description: 'Выполнение, таймер, календарь и статистика активности' },
       { src: '/assets/at-settings.webp', title: 'Настройки', description: 'Темы, персонализация и управление приложением' },
       { src: '/assets/at-chat.webp', title: 'Чаты', description: 'Общение, вложения и реакции' }
     ]
@@ -42,6 +44,7 @@ const projects: Project[] = [
     name: 'Localhost Manager',
     heading: <>Localhost<br />Manager<span className="period">.</span></>,
     category: 'Инструменты разработчика',
+    iconSrc: 'https://raw.githubusercontent.com/one4sv/Localhost-Manager/main/LocalhostManager/icon.ico',
     intro: 'Локальные сервисы под контролем.',
     description: 'Моё приложение для Windows: запускаю, останавливаю и отслеживаю проекты и их сервисы из одного интерфейса. Здесь есть логи, диагностика, настройки и управление процессами.',
     technologies: ['C#', '.NET 8', 'WPF', 'XAML', 'Windows Forms'],
@@ -113,7 +116,7 @@ function ThemePicker() {
   return <div className="theme-picker" ref={pickerRef}>
     <button type="button" className="theme-trigger" onClick={() => setOpened(!opened)} aria-expanded={opened} aria-haspopup="menu" aria-label={'Тема: ' + labels[theme]}>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2" /><path d="M8 21h8m-4-3v3" /></svg>
-      <span>{labels[theme]}</span><span className="down-chevron" aria-hidden="true">⌄</span>
+      <span>{labels[theme]}</span><svg className="down-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
     </button>
     {opened && <div className="theme-menu" role="menu" aria-label="Выбор темы">
       {(['auto', 'dark', 'light'] as ThemeChoice[]).map(value =>
@@ -132,7 +135,7 @@ function Header() {
       <nav className="main-nav" aria-label="Основная навигация"><a href="#projects">проекты</a><a href="#about">о студии</a><a href="#contacts">контакты</a></nav>
       <div className="header-actions">
         <a className="github-link" href="https://github.com/one4sv" target="_blank" rel="noopener noreferrer" aria-label="GitHub one4sv">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.54v-2.08c-3.08.67-3.73-1.31-3.73-1.31-.5-1.28-1.23-1.28-1.62-1.28-1.62-1.01-.69.08-.67.08-.67 1.12.08 1.71 1.15 1.71 1.15 1 .1.74 1.52 3.19 1.06.1-.72.39-1.21.71-1.49-2.46-.28-5.05-1.23-5.05-5.49 0-1.21.43-2.2 1.15-2.98-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.05 1.14A10.5 10.5 0 0 1 12 6.15c.94 0 1.88.13 2.76.37 2.11-1.43 3.04-1.14 3.04-1.14.61 1.53.23 2.66.11 2.94.72.78 1.15 1.77 1.15 2.98 0 4.27-2.6 5.21-5.08 5.48.4.35.76 1.04.76 2.1v3.11c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297a12 12 0 0 0-3.793 23.385c.6.111.82-.261.82-.577v-2.234c-3.338.726-4.043-1.416-4.043-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.304-5.466-1.333-5.466-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 0 1 3.003-.404c1.019.005 2.045.138 3.003.404 2.291-1.552 3.297-1.23 3.297-1.23.655 1.652.243 2.873.12 3.176.77.84 1.235 1.91 1.235 3.221 0 4.61-2.805 5.624-5.478 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.216.694.825.576A12.001 12.001 0 0 0 12 .297Z" /></svg>
         </a>
         <ThemePicker />
       </div>
@@ -225,7 +228,7 @@ function ProjectSection({ project, onOpen }: { project: Project; onOpen: (projec
     <div className="section-kicker"><span>{project.number} /</span> {project.category}</div>
     <div className="project-columns">
       <div className="project-copy">
-        <div className="project-icon" aria-hidden="true">{project.id === 'achieve-together' ? 'AT' : '>_'}</div>
+        <div className={`project-icon ${project.id === "achieve-together" ? "project-icon-at" : "project-icon-lm"}`} aria-hidden="true"><img src={project.iconSrc} alt="" loading="lazy" /></div>
         <h2>{project.heading}</h2>
         <p className="project-lead">{project.intro}</p>
         <p className="project-description">{project.description}</p>
