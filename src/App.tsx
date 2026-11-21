@@ -87,8 +87,8 @@ function Brand({ big = false }: { big?: boolean }) {
 
 // The interactive orbit follows the pointer without moving the numeral 4
 // separately: every letter keeps the same typographic baseline.
-function InteractiveBrand() {
-  const onPointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
+function InteractiveHero() {
+  const onPointerMove = (event: ReactPointerEvent<HTMLElement>) => {
     if (event.pointerType !== 'mouse' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const rect = event.currentTarget.getBoundingClientRect();
     const x = Math.max(-1, Math.min(1, (2 * (event.clientX - rect.left) / rect.width) - 1));
@@ -103,17 +103,21 @@ function InteractiveBrand() {
     root.setProperty('--logo-shift-y', `${(y * 1.5).toFixed(1)}px`);
   };
 
-  const onPointerLeave = (event: ReactPointerEvent<HTMLDivElement>) => {
+  const onPointerLeave = (event: ReactPointerEvent<HTMLElement>) => {
     const root = event.currentTarget.style;
     for (const name of ['--orbit-dot-x', '--orbit-dot-y', '--orbit-turn', '--logo-shift-x', '--logo-shift-y']) {
       root.removeProperty(name);
     }
   };
 
-  return <div className="hero-brand" onPointerMove={onPointerMove} onPointerLeave={onPointerLeave}>
-    <div className="orbit" aria-hidden="true"><span /></div>
-    <h1 id="hero-title"><Brand big /></h1>
-  </div>;
+  return <section className="hero" aria-labelledby="hero-title" onPointerMove={onPointerMove} onPointerLeave={onPointerLeave}>
+    <div className="hero-note"><span className="green-dot" /> independent digital studio</div>
+    <div className="hero-brand">
+      <div className="orbit" aria-hidden="true"><span /></div>
+      <h1 id="hero-title"><Brand big /></h1>
+    </div>
+    <p>Продукты, сервисы и немного экспериментов.</p>
+  </section>;
 }
 
 function ThemePicker() {
@@ -286,11 +290,7 @@ function App() {
   return <div className="site-root">
     <Header />
     <main>
-      <section className="hero container" aria-labelledby="hero-title">
-        <div className="hero-note"><span className="green-dot" /> independent digital studio</div>
-        <InteractiveBrand />
-        <p>Продукты, сервисы и немного экспериментов.</p>
-      </section>
+      <InteractiveHero />
 
       <div className="project-tabs-shell" id="projects">
         <nav className="project-tabs container" aria-label="Проекты">
