@@ -4,62 +4,54 @@
   const root = document.documentElement;
   const themeButton = document.getElementById('themeButton');
   const themeLabel = document.getElementById('themeLabel');
+  const themeDropdown = document.getElementById('themeDropdown');
+  const themeMenu = document.getElementById('themeMenu');
+  const themeOptions = [...document.querySelectorAll('.theme-option')];
   const themeValues = ['auto', 'dark', 'light'];
   const themeNames = { auto: 'авто', dark: 'тёмная', light: 'светлая' };
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let theme = 'auto';
   try {
-    const saved = window.localStorage.getItem('one4sv-studio-theme');
+    const saved = localStorage.getItem('one4sv-studio-theme');
     if (themeValues.includes(saved)) theme = saved;
-  } catch (_) { /* The system theme still works if storage is unavailable. */ }
+  } catch (_) { /* System theme works when storage is unavailable. */ }
 
+  function setMenuState(open) {
+    themeDropdown.classList.toggle('is-open', open);
+    themeButton.setAttribute('aria-expanded', open ? 'true' : 'false');
+    themeMenu.hidden = !open;
+  }
   function applyTheme(next) {
     theme = next;
     if (theme === 'auto') root.removeAttribute('data-theme');
     else root.setAttribute('data-theme', theme);
     themeLabel.textContent = themeNames[theme];
-    themeButton.setAttribute('aria-label', `Тема: ${themeNames[theme]}. Нажмите для смены`);
-    themeButton.setAttribute('title', `Тема: ${themeNames[theme]}. Нажмите для смены`);
+    themeButton.setAttribute('aria-label', `Тема: ${themeNames[theme]}`);
+    themeButton.setAttribute('title', `Тема: ${themeNames[theme]}`);
+    themeOptions.forEach(option => {
+      const active = option.dataset.themeValue === theme;
+      option.classList.toggle('is-active', active);
+      option.setAttribute('aria-checked', active ? 'true' : 'false');
+    });
     try { localStorage.setItem('one4sv-studio-theme', theme); } catch (_) {}
   }
   applyTheme(theme);
-  themeButton.addEventListener('click', () => {
-    applyTheme(themeValues[(themeValues.indexOf(theme) + 1) % themeValues.length]);
+  themeButton.addEventListener('click', () => setMenuState(themeMenu.hidden));
+  themeOptions.forEach(option => option.addEventListener('click', () => {
+    applyTheme(option.dataset.themeValue);
+    setMenuState(false);
+  }));
+  document.addEventListener('click', event => {
+    if (!themeDropdown.contains(event.target)) setMenuState(false);
   });
-
-  // Mouse/focus interaction is deliberately subtle: only the orbit marker
-  // and the elevated numeral "4" respond to a pointer, never page layout.
-  const heroMark = document.getElementById('heroMark');
-  const orbitDot = heroMark.querySelector('.orbit-dot');
-  const four = heroMark.querySelector('.logo-four');
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  function moveOrbit(event) {
-    if (reduceMotion.matches) return;
-    const r = heroMark.getBoundingClientRect();
-    const dx = event.clientX - (r.left + r.width / 2);
-    const dy = event.clientY - (r.top + r.height / 2);
-    const angle = Math.atan2(dy, dx) + .14;
-    orbitDot.style.left = `${50 + 50 * Math.cos(angle)}%`;
-    orbitDot.style.top = `${50 + 50 * Math.sin(angle)}%`;
-    const lift = -Math.min(7, Math.max(0, (r.height / 2 - Math.abs(dy)) * .055));
-    four.style.setProperty('--lift', `${lift.toFixed(1)}px`);
-  }
-  function resetOrbit() {
-    orbitDot.style.left = '86%';
-    orbitDot.style.top = '9%';
-    four.style.setProperty('--lift', '0px');
-  }
-  heroMark.addEventListener('pointermove', moveOrbit);
-  heroMark.addEventListener('pointerleave', resetOrbit);
-  heroMark.addEventListener('blur', resetOrbit);
-  heroMark.addEventListener('focus', () => {
-    orbitDot.style.left = '65%';
-    orbitDot.style.top = '0%';
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') setMenuState(false);
   });
 
   const screenshots = [
-    { src: './assets/at-plans.webp', title: 'Планы и активности', caption: 'Планы и активности — интерфейс AchieveTogether', alt: 'Интерфейс планов и активностей AchieveTogether' },
-    { src: './assets/at-settings.webp', title: 'Настройки', caption: 'Настройки, темы и оформление AchieveTogether', alt: 'Интерфейс настроек AchieveTogether' },
-    { src: './assets/at-chat.webp', title: 'Чаты', caption: 'Общение и сообщения AchieveTogether', alt: 'Интерфейс чатов AchieveTogether' }
+    { src: './assets/at-plans.webp', title: 'Планы и активности', caption: 'Планы и активности — интерфейс Achieve Together', alt: 'Интерфейс планов и активностей Achieve Together' },
+    { src: './assets/at-settings.webp', title: 'Настройки', caption: 'Настройки, темы и оформление Achieve Together', alt: 'Интерфейс настроек Achieve Together' },
+    { src: './assets/at-chat.webp', title: 'Чаты', caption: 'Общение и сообщения Achieve Together', alt: 'Интерфейс чатов Achieve Together' }
   ];
   let activeScreenshot = 0;
   let imageSwitchTimer = 0;
