@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#111411" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f6f7f5" media="(prefers-color-scheme: light)" />
+    <meta name="description" content="one4sv.studio — небольшая независимая студия цифровых продуктов. AchieveTogether, Localhost Manager и новые проекты." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="one4sv.studio" />
+    <meta property="og:description" content="Продукты, сервисы и эксперименты one4sv." />
+    <meta property="og:url" content="https://one4sv.studio/" />
+    <link rel="canonical" href="https://one4sv.studio/" />
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/app.js" defer></script>
+    <title>one4sv.studio — цифровые продукты</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#projects">К проектам</a>
+    <div class="site-wrap">
+      <header class="topbar" id="top">
+        <div class="container topbar-inner">
+          <a class="brand" href="#top" aria-label="one4sv.studio — на главную"><span>one</span><span class="green">4sv.</span><span>studio</span></a>
+          <nav class="primary-nav" aria-label="Основная навигация">
+            <a href="#projects">проекты</a>
+            <a href="#about">о студии</a>
+            <a href="#contacts">контакты</a>
+          </nav>
+          <div class="topbar-actions">
+            <a class="github-icon" href="https://github.com/one4sv" target="_blank" rel="noopener noreferrer" aria-label="Профиль one4sv на GitHub" title="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.54v-2.08c-3.08.67-3.73-1.31-3.73-1.31-.5-1.28-1.23-1.62-1.23-1.62-1.01-.69.08-.67.08-.67 1.12.08 1.71 1.15 1.71 1.15 1 .1.74 1.52 3.19 1.06.1-.72.39-1.21.71-1.49-2.46-.28-5.05-1.23-5.05-5.49 0-1.21.43-2.2 1.15-2.98-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.05 1.14A10.5 10.5 0 0 1 12 6.15c.94 0 1.88.13 2.76.37 2.11-1.43 3.04-1.14 3.04-1.14.61 1.53.23 2.66.11 2.94.72.78 1.15 1.77 1.15 2.98 0 4.27-2.6 5.21-5.08 5.48.4.35.76 1.04.76 2.1v3.11c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></svg>
+            </a>
+            <button class="theme-button" id="themeButton" type="button" aria-label="Тема: автоматически" title="Переключить тему">
+              <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+              <span id="themeLabel">авто</span>
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero container" aria-labelledby="heroTitle">
+          <div class="hero-eyebrow"><span class="live-dot"></span> independent digital studio</div>
+          <div class="hero-mark" id="heroMark" tabindex="0" aria-label="one4sv.studio — интерактивный логотип">
+            <div class="orbit" aria-hidden="true"><span class="orbit-dot"></span></div>
+            <h1 class="hero-logo" id="heroTitle"><span class="logo-one">one</span><span class="logo-four">4</span><span class="logo-sv">sv.</span><span class="logo-studio">studio</span></h1>
+          </div>
+          <p class="hero-subtitle">продукты, сервисы и немного экспериментов.</p>
+          <div class="hero-hint" aria-hidden="true"><span class="hint-line"></span> двигай курсором <span class="hint-line"></span></div>
+        </section>
+
+        <section class="projects-intro" id="projects" aria-label="Проекты студии">
+          <div class="container">
+            <nav class="project-nav" aria-label="Переход к проекту" id="projectNav">
+              <a href="#achieve-together" class="project-tab is-active" data-target="achieve-together">achieve together <span class="nav-index">01</span></a>
+              <a href="#localhost-manager" class="project-tab" data-target="localhost-manager">localhost manager <span class="nav-index">02</span></a>
+              <a href="#future-projects" class="project-tab" data-target="future-projects">будущие проекты <span class="nav-index">03</span></a>
+            </nav>
+          </div>
+        </section>
+
+        <section class="featured-section container section" id="achieve-together" aria-labelledby="atTitle">
+          <div class="section-kicker"><span class="section-number">01 /</span> актуальный проект <span class="status-dot"></span></div>
+          <div class="feature-layout">
+            <div class="feature-copy">
+              <div class="project-identity"><span class="at-icon" aria-hidden="true">AT</span><span class="status-pill">активный</span></div>
+              <h2 id="atTitle">achieve<br />together<span class="project-period">.</span></h2>
+              <p class="feature-lede">Место для привычек, планов и совместных достижений.</p>
+              <p class="feature-detail">Планируйте дела, следите за прогрессом, общайтесь и двигайтесь к своим целям вместе. Всё в одном пространстве.</p>
+              <div class="feature-actions">
+                <a class="button button-primary" href="https://achievetogether.vercel.app/" target="_blank" rel="noopener noreferrer">открыть проект <span aria-hidden="true">↗</span></a>
+                <a class="button button-text" href="https://github.com/one4sv/AT" target="_blank" rel="noopener noreferrer">исходный код <span aria-hidden="true">↗</span></a>
+              </div>
+              <div class="feature-tags" aria-label="Возможности AchieveTogether"><span>привычки</span><span>планы</span><span>активности</span><span>общение</span></div>
+            </div>
+            <div class="gallery" aria-label="Скриншоты AchieveTogether">
+              <button class="gallery-image-button" id="galleryOpen" type="button" aria-label="Открыть скриншот в полноэкранном режиме">
+                <div class="browser-shell"><div class="browser-top"><div class="window-controls"><i></i><i></i><i></i></div><span>achieve together</span><span class="browser-url">achievetogether.vercel.app</span></div><div class="gallery-stage"><img src="./assets/at-plans.webp" id="galleryMain" width="1589" height="993" alt="Скриншот раздела планов и активностей AchieveTogether" fetchpriority="high" /></div></div>
+                <span class="image-expand" aria-hidden="true">↗</span>
+              </button>
+              <div class="gallery-controls">
+                <div class="gallery-thumbs" role="group" aria-label="Выбор скриншота">
+                  <button type="button" class="gallery-thumb is-active" data-gallery="0" aria-current="true"><span class="thumb-num">01</span><span>планы</span></button>
+                  <button type="button" class="gallery-thumb" data-gallery="1"><span class="thumb-num">02</span><span>настройки</span></button>
+                  <button type="button" class="gallery-thumb" data-gallery="2"><span class="thumb-num">03</span><span>чаты</span></button>
+                </div>
+                <div class="gallery-arrows"><button class="arrow-button" type="button" id="galleryPrev" aria-label="Предыдущий скриншот">←</button><button class="arrow-button" type="button" id="galleryNext" aria-label="Следующий скриншот">→</button></div>
+              </div>
+              <p class="gallery-caption" id="galleryCaption">Планы и активности — интерфейс AchieveTogether</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section-divider container" id="localhost-manager" aria-labelledby="lmTitle">
+          <div class="section-kicker"><span class="section-number">02 /</span> инструменты</div>
+          <div class="secondary-project">
+            <div class="secondary-copy">
+              <div class="mini-symbol" aria-hidden="true">&gt;_</div>
+              <h2 id="lmTitle">localhost manager<span class="project-period">.</span></h2>
+              <p>Пространство для управления локальными проектами, адресами и окружениями разработки.</p>
+              <div class="muted-note"><span class="outline-dot"></span> подробности проекта появятся здесь позже</div>
+            </div>
+            <div class="localhost-visual" aria-label="Схематичная иллюстрация менеджера локальных проектов">
+              <div class="localhost-head"><span class="cmd-symbol">&gt;</span><span>localhost</span><span class="mono-status">local / dev</span></div>
+              <div class="local-row"><span><i class="local-dot"></i> app</span><span class="local-address">localhost:3000</span><span class="local-arrow">↗</span></div>
+              <div class="local-row"><span><i class="local-dot"></i> api</span><span class="local-address">localhost:8080</span><span class="local-arrow">↗</span></div>
+              <div class="local-row"><span><i class="local-dot local-dot-off"></i> database</span><span class="local-address">localhost:5432</span><span class="local-arrow">—</span></div>
+              <div class="concept-caption">концептуальная иллюстрация</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section-divider container" id="future-projects" aria-labelledby="futureTitle">
+          <div class="section-kicker"><span class="section-number">03 /</span> в перспективе</div>
+          <div class="future-heading"><div><h2 id="futureTitle">следующие идеи<span class="project-period">.</span></h2><p>Часть проектов пока на паузе. Вернёмся к ним в своё время.</p></div></div>
+          <div class="future-grid">
+            <article class="future-card"><div class="future-card-top"><span class="future-icon" aria-hidden="true">◎</span><span class="small-tag">концепция</span></div><h3>oneAcc</h3><p>Один аккаунт для продуктов one4sv studio.</p></article>
+            <article class="future-card"><div class="future-card-top"><span class="future-icon" aria-hidden="true">▢</span><span class="small-tag">на паузе</span></div><h3>oneVault</h3><p>Персональное пространство для защищённых данных.</p></article>
+            <article class="future-card"><div class="future-card-top"><span class="future-icon" aria-hidden="true">⌘</span><span class="small-tag">на паузе</span></div><h3>Atrium</h3><p>Будущий проект студии.</p></article>
+            <article class="future-card"><div class="future-card-top"><span class="future-icon" aria-hidden="true">✳</span><span class="small-tag">на паузе</span></div><h3>let's Meet</h3><p>Будущий проект студии.</p></article>
+          </div>
+        </section>
+
+        <section class="about-section container section-divider" id="about" aria-labelledby="aboutTitle">
+          <div class="section-kicker">/ о студии</div>
+          <div class="about-layout"><h2 id="aboutTitle">небольшая студия.<br /><span>большое внимание к деталям.</span></h2><p>one4sv.studio — пространство для собственных цифровых продуктов и экспериментов. Без лишнего шума: интерфейсы, которые работают, и идеи, к которым хочется возвращаться.</p></div>
+        </section>
+      </main>
+
+      <footer class="site-footer" id="contacts"><div class="container footer-inner"><div><a class="brand footer-brand" href="#top"><span>one</span><span class="green">4sv.</span><span>studio</span></a><p>создаём и пробуем новое.</p></div><div class="footer-links"><a href="https://github.com/one4sv" target="_blank" rel="noopener noreferrer">github ↗</a><a href="#top">наверх ↑</a></div><span class="copyright">© <span id="year">2026</span> one4sv studio</span></div></footer>
+    </div>
+
+    <dialog class="lightbox" id="lightbox" aria-label="Просмотр скриншота AchieveTogether">
+      <div class="lightbox-backdrop" data-close="true"></div>
+      <div class="lightbox-content"><div class="lightbox-header"><span id="lightboxTitle">Планы и активности</span><button type="button" id="lightboxClose" class="lightbox-close" aria-label="Закрыть">×</button></div><img id="lightboxImage" src="./assets/at-plans.webp" alt="Скриншот AchieveTogether"/><div class="lightbox-bottom"><button type="button" id="lightboxPrev" aria-label="Предыдущий скриншот">← назад</button><span id="lightboxCount">1 / 3</span><button type="button" id="lightboxNext" aria-label="Следующий скриншот">дальше →</button></div></div>
+    </dialog>
+  </body>
+</html>
