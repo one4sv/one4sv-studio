@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <rect width="64" height="64" rx="16" fill="#171a18"/>
-  <text x="32" y="44" font-family="Arial,Helvetica,sans-serif" font-size="43" font-weight="800" text-anchor="middle" fill="#69ef28">4</text>
+  <!-- Manrope ExtraBold 800, original glyph '4' converted to an outline. -->
+  <path fill="#6dfb20" d="M35.66 51.85Q35.66 48.19 25.33 48.19Q15 48.19 15 44.05Q15 39.9 22.5 24.2Q29.99 8.5 35.14 8.5Q40.29 8.5 32.8 24.2Q25.3 39.9 30.48 39.9Q35.66 39.9 35.66 34.03Q35.66 28.15 40.22 28.15Q44.77 28.15 44.77 34.03Q44.77 39.9 46.89 39.9Q49 39.9 49 44.05Q49 48.19 46.89 48.19Q44.77 48.19 44.77 51.85Q44.77 55.5 40.22 55.5Q35.66 55.5 35.66 51.85Z"/>
 </svg>

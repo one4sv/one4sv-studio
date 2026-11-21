@@ -85,10 +85,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .header { position: sticky; top: 0; z-index: 30; height: 78px; border-bottom: 1px solid var(--border-soft); background: var(--header-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
 .header-inside { height: 100%; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 28px; }
 .header-brand { width: max-content; }
-.brand-name { display: inline-flex; align-items: baseline; font-size: 23px; line-height: 1; letter-spacing: -.077em; font-weight: 800; white-space: nowrap; }
+.brand-name { display: inline-flex; align-items: baseline; font-size: 23px; line-height: 1; letter-spacing: -.045em; font-weight: 800; font-kerning: normal; white-space: nowrap; }
 .brand-name span { display: inline-block; }
 .brand-green, .period { color: var(--accent-ink); }
-.brand-name .brand-four { font-size: 1.02em; margin-left: .045em; letter-spacing: -.087em; }
+.brand-name .brand-four { font-size: 1.02em; margin-left: .025em; letter-spacing: inherit; }
 .main-nav { display: flex; align-items: center; gap: clamp(19px, 2.3vw, 39px); }
 .main-nav a { color: var(--muted); font-size: 15px; transition: color .15s ease; }
 .main-nav a:hover, .footer-actions a:hover { color: var(--ink); }
@@ -111,8 +111,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .green-dot { width: 7px; height: 7px; background: var(--accent); border-radius: 100%; }
 .hero-brand { position: relative; margin: 34px 0 21px; isolation: isolate; max-width: 100%; }
 .hero-brand h1 { margin: 0; position: relative; z-index: 2; transform: translate(var(--logo-shift-x), var(--logo-shift-y)); transition: transform .25s ease-out; }
-.brand-name-big { font-size: clamp(54px, 9vw, 142px); letter-spacing: -.09em; line-height: 1.1; }
-.brand-name-big .brand-four { font-size: 1.13em; margin-left: .085em; letter-spacing: -.10em; }
+.brand-name-big { font-size: clamp(54px, 9vw, 142px); letter-spacing: -.045em; line-height: 1.1; }
+.brand-name-big .brand-four { font-size: 1.13em; margin-left: .012em; letter-spacing: inherit; }
 .brand-name-big .brand-green { color: var(--accent); }
 .orbit { position: absolute; z-index: 1; inset: 12% -4%; border: 1px solid color-mix(in srgb, var(--accent) 53%, transparent); border-radius: 50%; transform: rotate(calc(-8deg + var(--orbit-turn))); pointer-events: none; transition: transform .25s ease-out, border-color .25s, box-shadow .25s; }
 @media (hover: hover) { .hero:hover .orbit { border-color: color-mix(in srgb, var(--accent) 80%, transparent); box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 7%, transparent); } }
@@ -227,8 +227,7 @@ footer { border-top: 1px solid var(--border); background: var(--panel); }
   .hero { min-height: 340px; padding: 62px 0 56px; }
   .hero-note { font-size: 12px; }
   .hero-brand { margin: 31px 0 20px; }
-  .brand-name-big { font-size: clamp(40px, 10.6vw, 77px); letter-spacing: -.105em; }
-  .brand-name-big .brand-four { margin-left: .065em; }
+  .brand-name-big { font-size: clamp(40px, 10.6vw, 77px); }
   .hero > p { font-size: 16px; }
   .project-tabs { display: flex; overflow-x: auto; scrollbar-width: none; gap: 28px; }
   .project-tabs::-webkit-scrollbar { display: none; }
