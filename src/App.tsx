@@ -44,7 +44,7 @@ const projects: Project[] = [
     name: 'Localhost Manager',
     heading: <>Localhost<br />Manager<span className="period">.</span></>,
     category: 'Инструменты разработчика',
-    iconSrc: 'https://raw.githubusercontent.com/one4sv/Localhost-Manager/main/LocalhostManager/icon.ico',
+    iconSrc: '/assets/localhost-manager-icon.png',
     intro: 'Локальные сервисы под контролем.',
     description: 'Моё приложение для Windows: запускаю, останавливаю и отслеживаю проекты и их сервисы из одного интерфейса. Здесь есть логи, диагностика, настройки и управление процессами.',
     technologies: ['C#', '.NET 8', 'WPF', 'XAML', 'Windows Forms'],
